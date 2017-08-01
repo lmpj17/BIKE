@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html>
+    <!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="icon-fonts/elusive-icons-2.0.0/css/elusive-icons.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.custom.css">
+        <link rel="stylesheet" type="text/css" href="lib/lobibox/lobibox.css">
+
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+        <meta charset="UTF-8">
+        <title>Blank App Designer Packaged Web App Project Template</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <style>
+            @font-face {
+                font-family: "Roboto-Thin";
+                src: url('assets/Roboto-Thin.ttf') format('truetype');
+            }
+            @font-face {
+                font-family: "Roboto-Regular";
+                src: url('assets/Roboto-Regular.ttf') format('truetype');
+            }
+        </style>
+
+        <!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+  * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+  * For a quick overview of "meta viewport" and @viewport, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+  * Additional useful references include:
+  *   http://www.quirksmode.org/mobile/viewports.html
+  *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+  *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+-->
+
+        <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+        <style>
+            /* following three (cascaded) are equivalent to above three meta viewport statements */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL here, if it does not work below. -->
+
+        <!-- Recommended location for your JavaScript libraries -->
+        <!-- These library references (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/mc/hammer.js"></script> -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
+
+        <!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+        <script src="cordova.js"></script>
+
+        <script type="application/javascript" src="js/db-ajax.js"></script>
+
+        <script src="js/app.js"></script>
+        <!-- for your event code, see README and file comments for details -->
+        <script src="js/init-app.js"></script>
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <script type="application/javascript" src="lib/jquery.min.js"></script>
+        <script type="application/javascript" src="lib/lobibox/lobibox.js"></script>
+
+        <script type="application/javascript" src="marginal/marginal-position.min.js"></script>
+        <script type="application/javascript" src="xdk/appdesigner/js/rest-of-space.js"></script>
+        <script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <script type="application/javascript" src="sidebar/js/hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/jquery.hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/swipe-hammer.js"></script>
+        <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+        <script type="application/javascript" src="xdk/ad/bs_subpage.js"></script>
+        <style type="text/css">
+            table td{
+            border:none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging weinre script URL here, if it does not work above. -->
+        <div class="upage vertical-col noborder" id="mainpage">
+            <div class="grid grid-pad urow uib_row_8 row-height-8" data-uib="layout/row" data-ver="0">
+                <div class="col uib_col_10 col-0_12-12" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col">
+                        <div class="tarea widget uib_w_115 d-margins" data-uib="media/text" data-ver="0" name="uib_w_115">
+                            <div class="widget-container left-receptacle"></div>
+                            <div class="widget-container right-receptacle"></div>
+                            <div class="text-container">
+                                <p>&nbsp; &nbsp;&nbsp;</p>
+
+                                <p>&nbsp;</p>
+                            </div>
+                        </div>
+                        <div class="widget uib_w_114 scale-image" data-uib="media/img" data-ver="0">
+                            <figure class="figure-align">
+                                <img class="img-circle" src="images/AppIcon.png" id="imglogo">
+
+                                <figcaption data-position="bottom"></figcaption>
+                            </figure>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <span class="uib_shim"></span>
+            </div>
+            <center>
+                <div id="message-login" class="font-roboto font-login-color">
+
+                </div>
+
+            </center>
+            <div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+
+            <input type="hidden" id="iduser">
+            <input type="hidden" id="username">
+            <input type="hidden" id="todaysdate">
+            <input type="hidden" id="returnplay">
+            <input type="hidden" id="returnbookm">
+
+            <input type="hidden" id="iduser">
+            <input type="hidden" id="username">
+            <input type="hidden" id="idvideo">
+            <center>
+                <div class="table-thing widget uib_w_1 d-margins field-width-250 font-roboto" data-uib="twitter%20bootstrap/input" data-ver="1">
+                    <label class="narrow-control" for="repEmail"></label>
+                    <input class="wide-control text-line-input font-login-color" type="email" placeholder="Email" id="repEmail">
+                </div>
+            </center>
+            <div>
+                <br>
+                <br>
+            </div>
+            <center>
+                <div class="table-thing widget uib_w_2 d-margins field-width-250 font-roboto" data-uib="twitter%20bootstrap/input" data-ver="1">
+                    <label class="narrow-control" for="repPwd"></label>
+                    <input class="wide-control  text-line-input default font-login-color" type="password" placeholder="Password" id="repPwd">
+                </div>
+            </center>
+            <div>&nbsp;</div>
+            <center>
+                <button class="btn widget uib_w_113 bg-blue font-white font-oswald-14 signin-button font-login-color font-roboto btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btlogin">Sign In</button>
+            </center>
+            <center>
+                <div class="tarea widget uib_w_163 d-margins font-white padding-top-20 size-label-1 align-center font-login-color font-roboto" data-uib="media/text" data-ver="0" name="uib_w_163" id="btemailsignup" stile="align:center;">
+                    <div class="widget-container left-receptacle">Forgot Password?</div>
+                    <div class="widget-container right-receptacle">Sign Up</div>
+                    <div class="text-container">
+                        <p></p>
+                    </div>
+                </div>
+            </center>
+        </div>
+
+        <div class="upage hidden bg-dark-g " id="pg-videos">
+            <div class="upage-outer">
+
+                <div style="width=100%; " id="page_33_8">
+
+                    <div style="height:auto;width=100%;" data-ver="0" name="uib_w_162" id="featuredClass">
+
+                    </div>
+
+                    <div class="scrollmenu4" id="scheduleTime" style="width:100%;">
+
+                    </div>
+
+                    <div class="font-white" data-uib="layout/card_grid" data-ver="0" id="videoGallery1" style="background-color:#1e2744;">
+
+                    </div>
+
+                </div>
+
+                <div class="uib-footer uib-footer-fixed container-group inner-element uib_w_122 font-5 padding-top size-footer bg-footer-ondemand" data-uib="layout/footer" data-ver="0" style="padding-bottom:10px;padding-left:0px;">
+                    <table width="100%" height="50px">
+                        <tbody>
+                            <tr>
+                                <td width="25%" align="center"><a href="#" onclick="videosShowPage();"><i class="fa fa-star fa-2x font-white-1"></i><p class="font-white-1">Featured</p></a>
+                                </td>
+                                <td width="25%" align="center"><a href="#" onclick="onDemandShowPage();"><i class="fa fa-play-circle-o fa-2x font-white-1"></i><p class="font-white-1">On-Demand</p></a>
+                                </td>
+                                <td width="25%" align="center"><a href="#" onclick="scheduleShowPage();"><i class="fa fa-calendar fa-2x font-white-1"></i><p class="font-white-1">Schedule</p></a>
+                                </td>
+                                <td width="25%" align="center"><a href="#" onclick="profileShowPage();"><i class="fa fa-user fa-2x font-white-1"></i><p class="font-white-1">Profile</p></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="upage hidden font-roboto bg-pg-ondemand" id="pg-ondemand">
+            <div class="upage-outer">
+                <div class="upage-content ac0" id="page_34_57">
+                    <div class="upage-outer">
+                        <div class="uib-header container-group inner-element uib_w_63 font-roboto bg-footer-ondemand" data-uib="layout/header" data-ver="0">
+
+                            <div class="widget-container wrapping-col single-centered font-white-1">
+                                <p id="btMenuRep" class="">ON-DEMAND
+
+                                </p>
+
+                            </div>
+                            <div class="widget-container content-area horiz-area wrapping-col left" style="position: absolute; left: 10px; color:#21e7b6;" onclick="onDemandSidebarSort();">
+
+                                <p class="">Sort
+
+                                </p>
+                            </div>
+                            <div class="widget-container content-area horiz-area wrapping-col right" style="position: absolute; right: 10px;color:#21e7b6;" onclick="onDemandSidebarFilter();">
+
+                                <p class="">Filters
+
+                                </p>
+                            </div>
+
+                            <div class="widget-container content-area horiz-area wrapping-col right"></div>
+                        </div>
+
+                        <div class="inner-element uib_w_71 uib_sidebar leftbar thumb-bg swipe bg-pg-ondemand font-white-1 font-roboto" data-uib="layout/left_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':160, 'side':'left', 'dur':200}" id="sidebarondemandsort">
+                            <div class="sidebar-content content-area vertical-col">
+                                <div class="bg-footer-ondemand" data-uib="media/text" data-ver="0" name="uib_w_152">
+
+                                    <p style="color:#21e7b6;padding-left:10px;">Sort</p>
+
+                                </div>
+                                <hr>
+                                <fieldset class="widget uib_w_153 padding-left-10" data-uib="twitter%20bootstrap/radio_group" data-ver="1" data-child-name="bs-radio-group-4" id="sort">
+
+                                    <label class="radio radio-padding-left widget uib_w_155 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                        <input type="radio" name="bs-radio-group-4" id="bs-radio-group-4" value="Trending">Trending</label>
+                                    <label class="radio radio-padding-left widget uib_w_156 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                        <input type="radio" name="bs-radio-group-4" id="bs-radio-group-4" value="Popular">Popular</label>
+                                    <label class="radio radio-padding-left widget uib_w_154 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                        <input type="radio" name="bs-radio-group-4" id="bs-radio-group-4" value="Top Rated">Top Rated</label>
+                                    <label class="radio radio-padding-left widget uib_w_155 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                        <input type="radio" name="bs-radio-group-4" id="bs-radio-group-4" value="Easiest">Easiest</label>
+                                    <label class="radio radio-padding-left widget uib_w_156 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                        <input type="radio" name="bs-radio-group-4" id="bs-radio-group-4" value="Hardest">Hardest</label>
+                                    <label class="radio radio-padding-left widget uib_w_154 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                        <input type="radio" name="bs-radio-group-4" id="bs-radio-group-4" value="New">New</label>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tarea widget uib_w_87 font-white-1 font-roboto" data-uib="media/text" data-ver="0" name="uib_w_87" id="ondemandtitle">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container"></div>
+                    </div>
+                    <div class="tarea widget uib_w_88 " data-uib="media/text" data-ver="0" name="uib_w_88" id="listOndemands">
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_10 row-height-10" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_12 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+                                <span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div class="uib-footer uib-footer-fixed container-group inner-element uib_w_117 padding-top font-5 size-footer font-roboto bg-footer-ondemand" data-uib="layout/footer" data-ver="0" style="padding-bottom:10px;padding-left:0px;">
+
+                    <table width="100%" height="50px">
+                        <tbody>
+                            <tr>
+                                <td width="25%" align="center"><a href="#" onclick="videosShowPage();"><i class="fa fa-star fa-2x font-white-1"></i><p class="font-white-1">Featured</p></a>
+                                </td>
+                                <td width="25%" align="center"><a href="#" onclick="onDemandShowPage();"><i class="fa fa-play-circle-o fa-2x font-white-1"></i><p class="font-white-1">On-Demand</p></a>
+                                </td>
+                                <td width="25%" align="center"><a href="#" onclick="scheduleShowPage();"><i class="fa fa-calendar fa-2x font-white-1"></i><p class="font-white-1">Schedule</p></a>
+                                </td>
+                                <td width="25%" align="center"><a href="#" onclick="profileShowPage();"><i class="fa fa-user fa-2x font-white-1"></i><p class="font-white-1">Profile</p></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="inner-element uib_w_130 uib_sidebar rightbar swipe font-white-1 font-roboto bg-pg-ondemand bar-gutter" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200}" id="sidebarondemandfilter">
+                    <div class="sidebar-content content-area vertical-col">
+
+                        <div class="bg-footer-ondemand " data-uib="media/text" data-ver="0" name="uib_w_132">
+                            <p style="color:#21e7b6;padding-left:10px;">Filters</p>
+                        </div>
+                        <hr class="hr">
+                        <label class="checkbox widget uib_w_134" style="padding-left:25px;" data-uib="twitter%20bootstrap/checkbox" data-ver="1">
+                            <input type="checkbox" id="onbookm">Bookmarked</label>
+
+                        <hr class="hr">
+
+                        <label class="checkbox widget uib_w_133" style="padding-left:25px;" data-uib="twitter%20bootstrap/checkbox" data-ver="1">
+                            <input type="checkbox" id="ontaken">Taken by me</label>
+                        <br>
+
+                        <div class="bg-footer-ondemand" data-uib="media/text" data-ver="0" name="uib_w_135">
+                            <p style="color:#21e7b6;padding-left:10px;">Reset Filters</p>
+                        </div>
+                        <fieldset class="widget uib_w_136 d-margins" data-uib="twitter%20bootstrap/radio_group" data-ver="1" data-child-name="bs-radio-group-0">
+                            <label class="radio radio-padding-left widget uib_w_137 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-aa" value="0">All</label>
+                        </fieldset>
+
+                        <div class="bg-footer-ondemand padding-left-3" data-uib="media/text" data-ver="0" name="uib_w_135">
+                            <p style="color:#21e7b6;padding-left:10px;">Length</p>
+                        </div>
+                        <fieldset class="widget uib_w_136 padding-left-3" data-uib="twitter%20bootstrap/radio_group" data-ver="1" data-child-name="bs-radio-group-0">
+                            <label class="radio radio-padding-left widget uib_w_137 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-10" value="5">5 min</label>
+                            <label class="radio radio-padding-left widget uib_w_138 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-10" value="10">10 mn</label>
+                            <label class="radio radio-padding-left widget uib_w_139 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-10" value="15">15 min</label>
+                            <label class="radio radio-padding-left widget uib_w_137 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-10" value="20">20 min</label>
+                            <label class="radio radio-padding-left widget uib_w_138 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-10" value="30">30 mn</label>
+                            <label class="radio radio-padding-left widget uib_w_139 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-10" value="45">45 min</label>
+                            <label class="radio radio-padding-left widget uib_w_137 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-10" value="60">60 min</label>
+                            <label class="radio radio-padding-left widget uib_w_138 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-10" value="75">75 min</label>
+                            <label class="radio radio-padding-left widget uib_w_139 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-10" value="90">90 min</label>
+                            <label class="radio radio-padding-left widget uib_w_139 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-10" value="120">120 min</label>
+
+                        </fieldset>
+                        <div class="bg-footer-ondemand " data-uib="media/text" data-ver="0" name="uib_w_135">
+                            <p style="color:#21e7b6;padding-left:10px;">Class type</p>
+                        </div>
+
+                        <fieldset class="widget uib_w_140 d-margins padding-left" data-uib="twitter%20bootstrap/radio_group" data-ver="1" data-child-name="bs-radio-group-1" id="filtertype">
+                            <label class="radio radio-padding-left widget uib_w_141 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-11" value="type">Type</label>
+                        </fieldset>
+                        <div class="bg-footer-ondemand" data-uib="media/text" data-ver="0" name="uib_w_142">
+                            <p style="color:#21e7b6;padding-left:10px;">Music Genre</p>
+                        </div>
+                        <div id="musics_list" style="padding-left:10px;"></div>
+
+                        <div class="bg-footer-ondemand" data-uib="media/text" data-ver="0" name="uib_w_147">
+                            <p style="color:#21e7b6;padding-left:10px;">Instructor</p>
+                        </div>
+                        <div id="instructors_list" style="padding-left:10px;"></div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="upage hidden bg-email" id="email-DPG">
+            <div class="upage-outer">
+                <div class="uib-header header-bg container-group inner-element uib_w_90 header-blue" data-uib="layout/header" data-ver="0">
+                    <h2></h2>
+                    <div class="widget-container wrapping-col single-centered">
+                        <div class="tarea widget uib_w_92 d-margins header-blue" data-uib="media/text" data-ver="0" name="uib_w_92" id="nameRep2">
+                            <div class="widget-container left-receptacle"></div>
+                            <div class="widget-container right-receptacle"></div>
+                            <div class="text-container">
+                                <p>nomeRep</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+
+                        <p id="btMenuRep2" class="">&nbsp;&nbsp; <i class="fa fa-bars fa-lg"></i>
+
+                        </p>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right"></div>
+                </div>
+                <div class="upage-content ac0 content-area vertical-col left" id="page_71_59">
+                    <div class="grid grid-pad urow uib_row_4 row-height-4" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_6 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+                                <span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+
+                    <div class="tarea widget uib_w_96 d-margins font-oswald-white" data-uib="media/text" data-ver="0" name="uib_w_96" id="messageReturnEmail">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container"></div>
+                    </div>
+
+                    <div class="table-thing widget uib_w_93 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control" for="emailSubject"></label>
+                        <input class="wide-control  default text-line-input" type="text" placeholder="Enter Subject" id="emailSubject">
+                        <input type="hidden" id="typeEmail">
+                    </div>
+                    <div>
+                        <p>&nbsp;</p>
+                    </div>
+                    <div class="table-thing widget uib_w_94 d-margins" data-uib="twitter%20bootstrap/text_area" data-ver="1">
+                        <label class="narrow-control"></label>
+                        <textarea rows="8" class="wide-control  text-line-input" wrap="soft" placeholder="Enter Message" id="emailText"></textarea>
+                    </div>
+                    <button class="btn widget uib_w_95 d-margins btsignup btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btSendEmailMessage">SEND</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="upage hidden bg-email" id="email-signup">
+            <div class="upage-outer">
+                <div class="uib-header container-group inner-element uib_w_107 header-blue" data-uib="layout/header" data-ver="0">
+                    <h2></h2>
+                    <div class="widget-container wrapping-col single-centered">
+                        <div class="tarea widget uib_w_108 d-margins" data-uib="media/text" data-ver="0" name="uib_w_108">
+                            <div class="widget-container left-receptacle">
+                                <button class="btn widget uib_w_109 header-blue btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="btexitsignup"><i class="fa fa-power-off" data-position="icon only"></i>
+                                </button>
+                            </div>
+                            <div class="widget-container right-receptacle"></div>
+                            <div class="text-container">
+                                <p>SIGNUP MESSAGE</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col left"></div>
+                    <div class="widget-container content-area horiz-area wrapping-col right"></div>
+                </div>
+                <div class="upage-content ac0 content-area vertical-col left" id="page_70_64">
+                    <div class="tarea widget uib_w_100 d-margins" data-uib="media/text" data-ver="0" name="uib_w_100" id="messagesignup">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container">&nbsp;</div>
+                    </div>
+                    <div class="grid grid-pad urow uib_row_5 row-height-5" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_7 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+                                <span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                    <div class="tarea widget uib_w_103 d-margins font-oswald-white" data-uib="media/text" data-ver="0" name="uib_w_103" id="message-signup">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container"></div>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="table-thing widget uib_w_104 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control" for="signupemail"></label>
+                        <input class="wide-control text-line-input default" type="text" placeholder="Enter email" id="signupemail">
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="table-thing widget uib_w_105 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control" for="signupname"></label>
+                        <input class="wide-control text-line-input default" type="text" placeholder="Enter Name" id="signupname">
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="table-thing widget uib_w_98 " data-uib="twitter%20bootstrap/input" data-ver="1">
+                        <label class="narrow-control" for="signupsubject"></label>
+                        <input class="wide-control default text-line-input" type="text" placeholder="Enter subject" id="signupsubject">
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="table-thing widget uib_w_99 d-margins" data-uib="twitter%20bootstrap/text_area" data-ver="1">
+                        <label class="narrow-control"></label>
+                        <textarea rows="7" class="wide-control text-line-input" wrap="soft" placeholder="Enter Message" id="signupmessage"></textarea>
+                    </div>
+                    <button class="btn widget uib_w_101 d-margins btn-default btsignup" data-uib="twitter%20bootstrap/button" data-ver="1" id="btsendsignup"><b>SEND</b>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="upage hidden font-white-1 bg-schedule" id="pg-schedule">
+            <div class="upage-outer">
+                <div class="uib-header container-group inner-element uib_w_118 font-roboto bg-footer-ondemand" data-uib="layout/header" data-ver="0">
+                    <h2></h2>
+                    <h2></h2>
+                    <div class="widget-container wrapping-col single-centered font-white-1" id="nameRep1">
+                        <p id="btMenuRep" style="font-size:19px;" class="">&nbsp;SCHEDULE
+
+                        </p>
+
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col left" style="position: absolute; left: 0px; color:skyblue;">
+
+                        <p id="qtyclasses">
+
+                        </p>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right" style="position: absolute; right: 0px;" onclick="scheduleSidebarFilter();">
+
+                        <p id="scheduleFilters" style="color:#21e7b6;padding-right:10px;">Filters
+
+                        </p>
+                    </div>
+
+                    <div class="widget-container content-area horiz-area wrapping-col right"></div>
+                </div>
+                <div class="upage-content ac0 content-area vertical-col left" id="page_35_90">
+
+                    <div class="scrollmenu1" style="box-sizing: border-box;" id="menuDaysScheduleNew">
+
+                    </div>
+
+                    <div data-uib="media/text" data-ver="0" name="uib_w_121" id="scheduleContent">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+
+                <div class="inner-element uib_w_162 uib_sidebar rightbar swipe bg-grey font-roboto" data-uib="layout/right_sidebar" data-ver="1" data-anim="{'style':'overlap', 'v':200, 'side':'right', 'dur':200}" id="schedule-filters">
+                    <div class="sidebar-content content-area vertical-col">
+
+                        <div class="bg-footer-ondemand" data-uib="media/text" data-ver="0" name="uib_w_132">
+                            <p style="color:#21e7b6;padding-left:10px;">Filters</p>
+                        </div>
+                        <hr class="hr">
+
+                        <label class="checkbox checkbox-padding-left widget uib_w_134 d-margins" data-uib="twitter%20bootstrap/checkbox" data-ver="1">
+                            <input type="checkbox" value="bookm" onchange="" id="schbookm">Bookmarked</label>
+
+                        <hr class="hr font-white-1">
+
+                        <label class="checkbox checkbox-padding-left widget uib_w_133 d-margins" data-uib="twitter%20bootstrap/checkbox" data-ver="1">
+                            <input type="checkbox" value="taken" id="schtaken">Taken by me</label>
+                        <br>
+
+                        <div class="bg-footer-ondemand" data-uib="media/text" data-ver="0" name="uib_w_135">
+                            <p style="color:#21e7b6;padding-left:10px;">Reset Filters</p>
+                        </div>
+                        <fieldset class="widget uib_w_136 d-margins" data-uib="twitter%20bootstrap/radio_group" data-ver="1" data-child-name="bs-radio-group-0">
+                            <label class="radio radio-padding-left widget uib_w_137 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-a" value="0">All</label>
+                        </fieldset>
+                        <br>
+                        <div class="bg-footer-ondemand" data-uib="media/text" data-ver="0" name="uib_w_135">
+                            <p style="color:#21e7b6;padding-left:10px;">Length</p>
+                        </div>
+                        <fieldset class="widget uib_w_136 d-margins" data-uib="twitter%20bootstrap/radio_group" data-ver="1" data-child-name="bs-radio-group-0">
+
+                            <label class="radio radio-padding-left widget uib_w_137 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-0" value="5">5 min</label>
+                            <label class="radio radio-padding-left widget uib_w_138 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-0" value="10">10 mn</label>
+                            <label class="radio radio-padding-left widget uib_w_139 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-0" value="15">15 min</label>
+                            <label class="radio radio-padding-left widget uib_w_137 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-0" value="20">20 min</label>
+                            <label class="radio radio-padding-left widget uib_w_138 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-0" value="30">30 mn</label>
+                            <label class="radio radio-padding-left widget uib_w_139 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-0" value="45">45 min</label>
+                            <label class="radio radio-padding-left widget uib_w_137 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-0" value="50">60 min</label>
+                            <label class="radio radio-padding-left widget uib_w_138 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-0" value="75">75 mn</label>
+                            <label class="radio radio-padding-left widget uib_w_139 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-0" value="90">90 min</label>
+                            <label class="radio radio-padding-left widget uib_w_139 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-0" value="120">120 min</label>
+
+                        </fieldset>
+                        <div class="bg-footer-ondemand" data-uib="media/text" data-ver="0" name="uib_w_135">
+                            <p style="color:#21e7b6;padding-left:10px;">Class type</p>
+                        </div>
+
+                        <fieldset class="widget uib_w_140 d-margins" data-uib="twitter%20bootstrap/radio_group" data-ver="1" data-child-name="bs-radio-group-1" id="schfiltertype">
+                            <label class="radio radio-padding-left widget uib_w_141 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-1" value="type">Type</label>
+                        </fieldset>
+                        <div class=" bg-footer-ondemand" data-uib="media/text" data-ver="0" name="uib_w_142">
+                            <p style="color:#21e7b6;padding-left:10px;">Music Genre</p>
+                        </div>
+                        <div id="sched_musics_list" style="padding-left:10px;"></div>
+
+                        <fieldset class="widget uib_w_143 d-margins" data-uib="twitter%20bootstrap/radio_group" data-ver="1" data-child-name="bs-radio-group-2" id="schfiltermusic">
+                            <label class="radio radio-padding-left widget uib_w_144 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-2" value="music">Music</label>
+                        </fieldset>
+
+                        <div class="padding-left" data-uib="media/text" data-ver="0" name="uib_w_147">
+                            <p style="color:#21e7b6;padding-left:10px;">Instructor</p>
+                        </div>
+                        <div id="sched_instructors_list" style="padding-left:10px;"></div>
+
+                        <fieldset class="widget uib_w_148 d-margins" data-uib="twitter%20bootstrap/radio_group" data-ver="1" data-child-name="bs-radio-group-3" id="schfilterinstructor">
+                            <label class="radio radio-padding-left widget uib_w_149 padding-bottom-10" data-uib="twitter%20bootstrap/radio_button" data-ver="1">
+                                <input type="radio" name="bs-radio-group-0" id="bs-radio-group-3" value="instructor">Instructor</label>
+                        </fieldset>
+
+                    </div>
+                </div>
+            </div>
+            <div class="uib-footer uib-footer-fixed container-group inner-element uib_w_119 font-5 padding-top size-footer font-roboto bg-footer-ondemand" data-uib="layout/footer" data-ver="0" style="padding-bottom:10px;padding-left:0px;">
+                <table width="100%" height="50px">
+                    <tbody>
+                        <tr>
+                            <td width="25%" align="center"><a href="#" onclick="videosShowPage();"><i class="fa fa-star fa-2x font-white-1"></i><p class="font-white-1">Featured</p></a>
+                            </td>
+                            <td width="25%" align="center"><a href="#" onclick="onDemandShowPage();"><i class="fa fa-play-circle-o fa-2x font-white-1"></i><p class="font-white-1">On-Demand</p></a>
+                            </td>
+                            <td width="25%" align="center"><a href="#" onclick="scheduleShowPage();"><i class="fa fa-calendar fa-2x font-white-1"></i><p class="font-white-1">Schedule</p></a>
+                            </td>
+                            <td width="25%" align="center"><a href="#" onclick="profileShowPage();"><i class="fa fa-user fa-2x font-white-1"></i><p class="font-white-1">Profile</p></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="upage hidden bg-dark-g" id="pg-workout">
+            <div class="upage-outer">
+                <div class="uib-header container-group inner-element uib_w_123 font-roboto font-white-1 bg-footer-ondemand" data-uib="layout/header" data-ver="0">
+                    <h2></h2>
+
+                    <div class="widget-container wrapping-col single-centered">
+                        <p class="">&nbsp;W O R K O U T
+
+                        </p>
+
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col left" style="position: absolute; left: 0px;">
+
+                        <p id="btMenuRep3" class="">&nbsp;&nbsp; <i class="fa fa-level-up rotate-45 fa-lg" onclick="returnFromPlay();"></i>
+
+                        </p>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right" style="position: absolute; right: 0px;">
+                    </div>
+
+                </div>
+
+                <div class="upage-content ac0 content-area vertical-col left" id="page_9_56">
+                    <div class="tarea widget uib_w_124 d-margins" data-uib="media/text" data-ver="0" name="uib_w_124" id="workoutVideo">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container">
+
+                            <figure class="margin-auto widget uib_w_80 d-margins" data-uib="media/video" data-ver="0">
+                                <video id="ondemandvideo" width="100%" height="auto" onclick="videostartstop();">
+                                    <source src="my/video/src.mp4" type="video/mp4">
+                                        <source src="my/video/src.ogg" type="video/ogg">
+                                            <source src="my/video/src.webm" type="video/webm">
+                                </video>
+                            </figure>
+
+                        </div>
+                    </div>
+                    <div data-uib="media/text" data-ver="0" name="uib_w_125" id="workoutDisplay">
+                    </div>
+                    <div data-uib="media/text" data-ver="0" name="uib_w_126" id="leaderBoard">
+                    </div>
+                    <div data-uib="layout/side_by_side" data-ver="0" id="workout-footer" style="position: fixed;bottom: 0;max-width: 100%;max-height:150px;padding-left:0px;background-color:#21e7b6" align="center">
+                        <div class="leftContent ">
+                            <img src="images/locker.png">
+
+                        </div>
+                        <div class="rightContent ">
+                            <img src="images/pause.png">
+
+                        </div>
+                        <div class="rightContent ">
+                            <img src="images/bio.png">
+
+                        </div>
+
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_9 row-height-9" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_11 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+                                <span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_11 row-height-11" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_13 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+                                <span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="upage vertical-col left hidden" id="pg-workout-progress">
+            <div class="tarea widget uib_w_129 d-margins" data-uib="media/text" data-ver="0" name="uib_w_129" id="workout-progress">
+                <div class="widget-container left-receptacle"></div>
+                <div class="widget-container right-receptacle"></div>
+                <div class="text-container">
+                    <p>workout-progress</p>
+                </div>
+            </div>
+        </div>
+        <div class="upage hidden bg-grey" id="pg-video-detail">
+            <div class="upage-outer">
+                <div class="tarea widget uib_w_157 d-margins" data-uib="media/text" data-ver="0" name="uib_w_157" id="videoImage">
+                </div>
+                <div class="tarea widget uib_w_158 d-margins" data-uib="media/text" data-ver="0" name="uib_w_158" id="difRating">
+                </div>
+                <div class="tarea widget uib_w_159 d-margins font-black  padding-top" data-uib="media/text" data-ver="0" name="uib_w_159" id="videoDescription">
+                    <div class="widget-container left-receptacle"></div>
+                    <div class="widget-container right-receptacle"></div>
+                    <div class="text-container">
+                        <p>videoDescription</p>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+            <div class="uib-footer uib-footer-fixed container-group inner-element uib_w_160 padding-bottom" data-uib="layout/footer" data-ver="0">
+                <h2></h2>
+                <div class="widget-container wrapping-col single-centered">
+                    <a href="fitnation://" class="btn widget uib_w_161 d-margins button-round font-roboto btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="xplayOndemand"><i class="glyphicon glyphicon-play button-icon-left" data-position="left"></i>PLAY</a>
+                </div>
+                <div class="widget-container content-area horiz-area wrapping-col left"></div>
+                <div class="widget-container content-area horiz-area wrapping-col right"></div>
+            </div>
+        </div>
+        <div class="upage hidden font-roboto font-white-1 bg-footer-ondemand bg-pg-ondemand" id="pg-profile">
+            <div class="upage-outer">
+                <div class="upage-content ac0 content-area vertical-col left" id="page_6_70">
+                    <div class="grid grid-pad urow uib_row_14 row-height-14" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_16 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+                                <span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                    <div class="tarea widget uib_w_165 d-margins" data-uib="media/text" data-ver="0" name="uib_w_165" id="profileUser">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container">
+                            <p>profileUser</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-pad urow uib_row_12 row-height-12" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_14 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+                                <span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                    <div class="tarea widget uib_w_166 d-margins" data-uib="media/text" data-ver="0" name="uib_w_166" id="showClassTaken">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container">
+                            <p>showClassTaken</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-pad urow uib_row_13 row-height-13" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_15 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+                                <span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                    <div class="tarea widget uib_w_167 d-margins" data-uib="media/text" data-ver="0" name="uib_w_167" id="msgProfile">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container">
+                            <p>msgProfile</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uib-footer uib-footer-fixed container-group inner-element uib_w_164 font-5 padding-top size-footer font-roboto bg-footer-ondemand" data-uib="layout/footer" data-ver="0" style="padding-bottom:10px;padding-left:0px;">
+                    <table width="100%" height="50px">
+                        <tbody>
+                            <tr>
+                                <td width="25%" align="center"><a href="#" onclick="videosShowPage();"><i class="fa fa-star fa-2x font-white-1"></i><p class="font-white-1">Featured</p></a>
+                                </td>
+                                <td width="25%" align="center"><a href="#" onclick="onDemandShowPage();"><i class="fa fa-play-circle-o fa-2x font-white-1"></i><p class="font-white-1">On-Demand</p></a>
+                                </td>
+                                <td width="25%" align="center"><a href="#" onclick="scheduleShowPage();"><i class="fa fa-calendar fa-2x font-white-1"></i><p class="font-white-1">Schedule</p></a>
+                                </td>
+                                <td width="25%" align="center"><a href="#" onclick="profileShowPage();"><i class="fa fa-user fa-2x font-white-1"></i><p class="font-white-1">Profile</p></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="uib-footer uib-footer-fixed container-group inner-element uib_w_122 font-5 padding-top size-footer bg-footer-ondemand" data-uib="layout/footer" data-ver="0" style="padding-bottom:10px;padding-left:0px;">
+                    <table width="100%" height="50px">
+                        <tbody>
+                            <tr>
+                                <td width="25%" align="center"><a href="#" onclick="videosShowPage();"><i class="fa fa-star fa-2x font-white-1"></i><p class="font-white-1">Featured</p></a>
+                                </td>
+                                <td width="25%" align="center"><a href="#" onclick="onDemandShowPage();"><i class="fa fa-play-circle-o fa-2x font-white-1"></i><p class="font-white-1">On-Demand</p></a>
+                                </td>
+                                <td width="25%" align="center"><a href="#" onclick="scheduleShowPage();"><i class="fa fa-calendar fa-2x font-white-1"></i><p class="font-white-1">Schedule</p></a>
+                                </td>
+                                <td width="25%" align="center"><a href="#" onclick="profileShowPage();"><i class="fa fa-user fa-2x font-white-1"></i><p class="font-white-1">Profile</p></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="upage vertical-col left hidden bg-pg-ondemand" id="pg-bookm">
+
+            <div class="uib-footer uib-footer-fixed container-group inner-element uib_w_160 padding-bottom" data-uib="layout/footer" data-ver="0">
+                <h2></h2>
+                <div class="widget-container wrapping-col single-centered">
+                    <a href="fitnation://" class="btn widget uib_w_161 d-margins button-round font-roboto btn-default" data-uib="twitter%20bootstrap/button" data-ver="1" id="closeBookm">CLOSE</a>
+                </div>
+                <div class="widget-container content-area horiz-area wrapping-col left"></div>
+                <div class="widget-container content-area horiz-area wrapping-col right"></div>
+            </div>
+
+            <div class="grid grid-pad urow uib_row_15 row-height-15" data-uib="layout/row" data-ver="0">
+                <div class="col uib_col_17 col-0_12-12" data-uib="layout/col" data-ver="0">
+                    <div class="widget-container content-area vertical-col">
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <span class="uib_shim"></span>
+            </div>
+            <div class="tarea widget uib_w_168 font-roboto font-white-1 font-size-20" data-uib="media/text" data-ver="0" name="uib_w_168">
+                <div class="widget-container left-receptacle"></div>
+                <div class="widget-container right-receptacle"></div>
+                <div class="text-container">
+                    <center>
+                        <p>Great! You're all set.</p>
+                    </center>
+                </div>
+            </div>
+            <div class="tarea widget uib_w_169 d-margins" data-uib="media/text" data-ver="0" name="uib_w_169" id="instructorProfile">
+                <div class="widget-container left-receptacle"></div>
+                <div class="widget-container right-receptacle"></div>
+                <div class="text-container">
+                    <p>instructorProfile</p>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>
